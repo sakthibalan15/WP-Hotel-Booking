@@ -201,6 +201,9 @@ class WP_Hotel_Booking {
 		$this->_include( 'includes/gateways/class-wphb-payment-gateway-base.php' );
 
 		$this->_include( 'includes/wphb-webhooks.php' );
+
+		// api
+		$this->_include( 'includes/api/wphb-api-functions.php' );
 	}
 
 	public function frontend_includes() {
