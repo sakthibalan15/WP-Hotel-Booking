@@ -16,12 +16,12 @@ global $hb_settings;
             <table class="hb_table">
                 <thead>
                 <th>&nbsp;</th>
-                <th class="hb_room_type"><?php _e( 'Room type', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_capacity"><?php _e( 'Capacity', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_room_type"><?php _e( 'Cycle type', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_capacity" style="display: none;"><?php _e( 'Capacity', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_quantity"><?php _e( 'Quantity', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_check_in"><?php _e( 'Check - in', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_check_out"><?php _e( 'Check - out', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_night"><?php _e( 'Night', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_check_in"><?php _e( 'From', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_check_out"><?php _e( 'To', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_night" style="display: none;"><?php _e( 'Night', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_gross_total"><?php _e( 'Gross Total', 'wp-hotel-booking' ); ?></th>
                 </thead>
 				<?php if ( $rooms = $cart->get_rooms() ): ?>
@@ -42,13 +42,13 @@ global $hb_settings;
                             <td class="hb_room_type">
                                 <a href="<?php echo get_permalink( $room->ID ); ?>"><?php echo esc_html( $room->name ); ?><?php printf( '%s', $room->capacity_title ? ' (' . $room->capacity_title . ')' : '' ); ?></a>
                             </td>
-                            <td class="hb_capacity"><?php echo sprintf( _n( '%d adult', '%d adults', $room->capacity, 'wp-hotel-booking' ), $room->capacity ); ?> </td>
+                            <td class="hb_capacity" style="display: none;"><?php echo sprintf( _n( '%d adult', '%d adults', $room->capacity, 'wp-hotel-booking' ), $room->capacity ); ?> </td>
                             <td class="hb_quantity">
                                 <p><?php echo esc_html( $num_of_rooms ); ?></p>
                             </td>
                             <td class="hb_check_in"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_in_date' ) ) ) ?></td>
                             <td class="hb_check_out"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_out_date' ) ) ) ?></td>
-                            <td class="hb_night"><?php echo hb_count_nights_two_dates( $room->get_data( 'check_out_date' ), $room->get_data( 'check_in_date' ) ) ?></td>
+                            <td class="hb_night" style="display: none;"><?php echo hb_count_nights_two_dates( $room->get_data( 'check_out_date' ), $room->get_data( 'check_in_date' ) ) ?></td>
                             <td class="hb_gross_total">
 								<?php echo hb_format_price( $room->total ); ?>
                             </td>

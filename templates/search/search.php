@@ -19,7 +19,7 @@ $uniqid         = uniqid();
 		$atts = $args['atts'];
 	if ( !isset( $atts['show_title'] ) || strtolower( $atts['show_title'] ) === 'true' ):
 		?>
-        <h3><?php _e( 'Search your room', 'wp-hotel-booking' ); ?></h3>
+        <h3><?php _e( 'Search your e-cycle', 'wp-hotel-booking' ); ?></h3>
 	<?php endif; ?>
     <form name="hb-search-form" action="<?php echo esc_attr( $search_page ); ?>" class="hb-search-form-<?php echo esc_attr( $uniqid ) ?>">
         <ul class="hb-form-table">
@@ -37,7 +37,7 @@ $uniqid         = uniqid();
                 </div>
             </li>
 
-            <li class="hb-form-field">
+            <li class="hb-form-field" style="display: none;">
 				<?php hb_render_label_shortcode( $atts, 'show_label', __( 'Adults', 'wp-hotel-booking' ), 'true' ); ?>
                 <div class="hb-form-field-input">
 					<?php
@@ -56,7 +56,7 @@ $uniqid         = uniqid();
                 </div>
             </li>
 
-            <li class="hb-form-field">
+            <li class="hb-form-field" style="display: none;">
 				<?php hb_render_label_shortcode( $atts, 'show_label', __( 'Children', 'wp-hotel-booking' ), 'true' ); ?>
                 <div class="hb-form-field-input">
 					<?php

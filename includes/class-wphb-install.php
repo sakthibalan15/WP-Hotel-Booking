@@ -155,7 +155,7 @@ class WPHB_Install {
 		if ( ! hb_get_page_id( 'search' ) || ! get_post( hb_get_page_id( 'search' ) ) ) {
 			$pages['search'] = array(
 				'name'    => _x( 'hotel-search', 'Page Slug', 'wp-hotel-booking' ),
-				'title'   => _x( 'Hotel Booking Search', 'Page Title', 'wp-hotel-booking' ),
+				'title'   => _x( 'E-Cycle Booking Search', 'Page Title', 'wp-hotel-booking' ),
 				'content' => '[' . apply_filters( 'hotel_booking_search_shortcode_tag', 'hotel_booking' ) . ']'
 			);
 		}

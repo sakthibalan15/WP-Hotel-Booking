@@ -35,7 +35,7 @@ $featured = $gallery ? array_shift( $gallery ) : false;
                         <label><?php _e( 'Capacity:', 'wp-hotel-booking' ); ?></label>
                         <div class=""><?php echo esc_html( $room->capacity ); ?></div>
                     </li>
-                    <li class="hb_search_max_child">
+                    <li class="hb_search_max_child" style="display: none;">
                         <label><?php _e( 'Max Children:', 'wp-hotel-booking' ); ?></label>
                         <div><?php echo esc_html( $room->max_child ); ?></div>
                     </li>
@@ -71,7 +71,7 @@ $featured = $gallery ? array_shift( $gallery ) : false;
                         </select>
 					<?php } ?>
                     <li class="hb_search_add_to_cart">
-                        <button class="hb_add_to_cart"><?php _e( 'Select this room', 'wp-hotel-booking' ) ?></button>
+                        <button class="hb_add_to_cart"><?php _e( 'Select this cycle', 'wp-hotel-booking' ) ?></button>
                     </li>
                 </ul>
             </div>

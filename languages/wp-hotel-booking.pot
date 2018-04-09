@@ -153,7 +153,7 @@ msgstr ""
 
 #: includes/class-wphb-install.php:158
 msgctxt "Page Title"
-msgid "Hotel Booking Search"
+msgid "E-Cycle Booking Search"
 msgstr ""
 
 #: includes/class-wphb-install.php:165
@@ -3427,7 +3427,7 @@ msgid "(View price breakdown)"
 msgstr ""
 
 #: templates/search/loop.php:74
-msgid "Select this room"
+msgid "Select this cycle"
 msgstr ""
 
 #: templates/search/results.php:14

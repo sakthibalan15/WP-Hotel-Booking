@@ -720,8 +720,8 @@ if ( ! function_exists( 'hb_i18n' ) ) {
 			'dayNamesShort'                  => hb_day_name_short_js(),
 			'dayNamesMin'                    => hb_day_name_min_js(),
 			'date_start'                     => get_option( 'start_of_week' ),
-			'view_cart'                      => __( 'View Cart', 'wp-hotel-booking' ),
-			'cart_url'                       => hb_get_cart_url()
+			'view_cart'                      => __( 'Checkout', 'wp-hotel-booking' ),
+			'cart_url'                       => hb_get_checkout_url()
 		);
 
 		return apply_filters( 'hb_i18n', $translation );
