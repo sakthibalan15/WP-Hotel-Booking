@@ -17,7 +17,24 @@ if ( !function_exists( 'v1_booking_items' ) ) {
                         RIGHT JOIN $wpdb->posts AS booking ON item.order_id = booking.ID
                         WHERE item.order_id IS NOT NULL ORDER BY item.order_item_id
                 ", []);
-        return $wpdb->get_results( $query );
+
+        $result = $wpdb->get_results( $query );
+        header('Cache-control: private');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: filename=booking-items.csv');
+
+        flush();
+        $out = fopen('php://output', 'w');
+
+        fputcsv($out, array_keys((array)$result[0]));
+
+        foreach($result as $row)
+        {
+           $row = (array) $row;
+           fputcsv($out, array_values($row));
+        }
+        fclose($out);
+        exit();
     }
 
 }
@@ -46,6 +63,22 @@ if ( !function_exists( 'v1_bookings' ) ) {
             $current_booking = array_merge($current_booking, array($row->meta_key => $row->meta_value));
         }
         array_push($result, $current_booking);
+        header('Cache-control: private');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: filename=bookings.csv');
+
+        flush();
+        $out = fopen('php://output', 'w');
+
+        fputcsv($out, array_keys($result[0]));
+
+        foreach($result as $row)
+        {
+           fputcsv($out, array_values($row));
+        }
+        // fputcsv($out, [1,2,3]);
+        fclose($out);
+        exit();
         return $result;
 
     }
@@ -59,7 +92,7 @@ if ( !function_exists( 'hotel_booking_api_init' ) ) {
         register_rest_route( API_NAMESPACE, '/booking-items/', array(
             'methods' => 'GET',
             'callback' => 'v1_booking_items',
-        ) );
+        ));
 
         register_rest_route( API_NAMESPACE, '/bookings/', array(
             'methods' => 'GET',
@@ -78,10 +111,8 @@ if ( !function_exists( 'hotel_booking_api_init' ) ) {
 
         global $wp_status_types;
 
-
     }
 
     add_action( 'rest_api_init', 'hotel_booking_api_init');
 
 }
-
