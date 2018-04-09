@@ -14,7 +14,10 @@ do_action( 'hotel_booking_before_checkout_form' );
     <div id="hotel-booking-payment">
 
         <form name="hb-payment-form" id="hb-payment-form" method="post" action="<?php echo isset( $search_page ) ? $search_page : ''; ?>">
-            <h3><?php _e( 'Booking E-Cycles', 'wp-hotel-booking' ); ?></h3>
+						<h3 style="float:left"><?php _e( 'Booking E-Cycles', 'wp-hotel-booking' ); ?></h3>
+						<a href="<?php echo hb_get_cart_url() ?>"
+							 class="hb_button hb_checkout pull-right"><?php _e( 'Modify Cart', 'wp-hotel-booking' ); ?>
+						 </a>
             <table class="hb_table">
                 <thead>
                 <th class="hb_room_type"><?php _e( 'Cycle type', 'wp-hotel-booking' ); ?></th>
