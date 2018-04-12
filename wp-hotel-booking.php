@@ -1,11 +1,9 @@
 <?php
 /*
-    Plugin Name: WP Hotel Booking
-    Plugin URI: http://thimpress.com/
-    Description: Full of professional features for a booking room system
+    Plugin Name: Cycle Rental Managment
+    Description: Full of professional features for a booking cycle system
     Author: ThimPress
-    Version: 1.9.1
-    Author URI: http://thimpress.com
+    Version: 1
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -398,4 +396,3 @@ class WP_Hotel_Booking {
 }
 
 $GLOBALS['wp_hotel_booking'] = WP_Hotel_Booking::instance();
-
