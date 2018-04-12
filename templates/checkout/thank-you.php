@@ -55,7 +55,7 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
                 <tr>
                     <th><?php _e( 'Item', 'wp-hotel-booking' ); ?></th>
                     <th><?php _e( 'Check in - Checkout', 'wp-hotel-booking' ) ?></th>
-                    <th><?php _e( 'Night', 'wp-hotel-booking' ); ?></th>
+                    <th style="display:none;"><?php _e( 'Night', 'wp-hotel-booking' ); ?></th>
                     <th><?php _e( 'Qty', 'wp-hotel-booking' ); ?></th>
                     <th><?php _e( 'Total', 'wp-hotel-booking' ); ?></th>
                 </tr>
@@ -74,8 +74,8 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
                         <td>
 							<?php printf( '%d', hb_count_nights_two_dates( hb_get_order_item_meta( $room->order_item_id, 'check_out_date', true ), hb_get_order_item_meta( $room->order_item_id, 'check_in_date', true ) ) ) ?>
                         </td>
-                        <td>
-							<?php printf( '%s', hb_get_order_item_meta( $room->order_item_id, 'qty', true ) ) ?>
+                        <td style="display:none;">
+							<?php // printf( '%s', hb_get_order_item_meta( $room->order_item_id, 'qty', true ) ) ?>
                         </td>
                         <td>
 							<?php printf( '%s', hb_format_price( hb_get_order_item_meta( $room->order_item_id, 'subtotal', true ), hb_get_currency_symbol( $booking->currency ) ) ); ?>
@@ -102,19 +102,19 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 				<?php } ?>
 
                 <tr>
-                    <td colspan="4"><?php _e( 'Sub Total', 'wp-hotel-booking' ) ?></td>
+                    <td colspan="3"><?php _e( 'Sub Total', 'wp-hotel-booking' ) ?></td>
                     <td>
 						<?php printf( '%s', hb_format_price( hb_booking_subtotal( $booking->id ), hb_get_currency_symbol( $booking->currency ) ) ); ?>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4"><?php _e( 'Tax', 'wp-hotel-booking' ) ?></td>
+                    <td colspan="3"><?php _e( 'Tax', 'wp-hotel-booking' ) ?></td>
                     <td>
 						<?php printf( '%s', apply_filters( 'hotel_booking_admin_booking_details', hb_format_price( hb_booking_tax_total( $booking->id ), hb_get_currency_symbol( $booking->currency ) ), $booking ) ); ?>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4"><?php _e( 'Grand Total', 'wp-hotel-booking' ) ?></td>
+                    <td colspan="3"><?php _e( 'Grand Total', 'wp-hotel-booking' ) ?></td>
                     <td>
 						<?php printf( '%s', hb_format_price( hb_booking_total( $booking->id ), hb_get_currency_symbol( $booking->currency ) ) ) ?>
                     </td>
