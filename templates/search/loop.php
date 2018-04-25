@@ -26,10 +26,10 @@ $featured = $gallery ? array_shift( $gallery ) : false;
 
             <div class="hb-room-info">
                 <h4 class="hb-room-name">
-						<?php echo esc_html( $room->name ); ?><?php $room->capacity_title ? printf( '(%s)', $room->capacity_title ) : ''; ?>                    
+						<?php echo esc_html( $room->name ); ?><?php //$room->capacity_title ? printf( '(%s)', $room->capacity_title ) : ''; ?>
                 </h4>
                 <ul class="hb-room-meta">
-                    <li class="hb_search_capacity">
+                    <li class="hb_search_capacity" style="display: none;">
                         <label><?php _e( 'Capacity:', 'wp-hotel-booking' ); ?></label>
                         <div class=""><?php echo esc_html( $room->capacity ); ?></div>
                     </li>
@@ -38,9 +38,9 @@ $featured = $gallery ? array_shift( $gallery ) : false;
                         <div><?php echo esc_html( $room->max_child ); ?></div>
                     </li>
                     <li class="hb_search_price">
-                        <label><?php _e( 'Price:', 'wp-hotel-booking' ); ?></label>
+                        <label><?php _e( 'Price per day:', 'wp-hotel-booking' ); ?></label>
                         <span class="hb_search_item_price"><?php echo hb_format_price( $room->amount_singular ); ?></span>
-                        <div class="hb_view_price">
+                        <div class="hb_view_price" style="display: none;">
                             <a href=""
                                class="hb-view-booking-room-details"><?php _e( '(View price breakdown)', 'wp-hotel-booking' ); ?></a>
 							<?php hb_get_template( 'search/booking-room-details.php', array( 'room' => $room ) ); ?>

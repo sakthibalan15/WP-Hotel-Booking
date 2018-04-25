@@ -84,7 +84,7 @@ if ( ! function_exists( 'hb_add_meta_boxes' ) ) {
 			),
 			array(
 				'name'   => 'room_addition_information',
-				'label'  => __( 'Addition Information', 'wp-hotel-booking' ),
+				'label'  => __( 'Auroville Guest House Name. Please List Any Special Requests', 'wp-hotel-booking' ),
 				'type'   => 'textarea',
 				'std'    => '',
 				'editor' => true

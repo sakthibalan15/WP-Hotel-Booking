@@ -103,11 +103,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </div>
             </li>
             <li class="hb-form-field">
-                <label class="hb-form-field-label"><?php _e( 'Fax', 'wp-hotel-booking' ); ?></label>
+                <label class="hb-form-field-label"><?php _e( 'Local Indian Mobile', 'wp-hotel-booking' ); ?></label>
 
                 <div class="hb-form-field-input">
                     <input type="text" name="fax" value="<?php echo esc_attr( $customer->fax ); ?>"
-                           placeholder="<?php _e( 'Fax', 'wp-hotel-booking' ); ?>"/>
+                           placeholder="<?php _e( 'Local Indian Mobile', 'wp-hotel-booking' ); ?>"/>
                 </div>
             </li>
         </ul>

@@ -1945,7 +1945,7 @@ msgstr ""
 #: includes/admin/wphb-admin-functions.php:87
 #: templates/checkout/addition-information.php:10
 #: templates/emails/booking-details.php:51
-msgid "Addition Information"
+msgid "Auroville Guest House Name. Please List Any Special Requests"
 msgstr ""
 
 #: includes/admin/wphb-admin-functions.php:98
@@ -3391,7 +3391,7 @@ msgid "Billing address"
 msgstr ""
 
 #: templates/emails/customer-details.php:40
-msgid "Addition Information:"
+msgid "Auroville Guest House Name. Please List Any Special Requests:"
 msgstr ""
 
 #: templates/loop/pricing_plan.php:24

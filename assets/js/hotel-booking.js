@@ -480,7 +480,7 @@
 
             }
         },
-        add_to_cart: function () {
+        add_to_cart: function () { 
             var searchResult = $('form.hb-search-room-results');
 
             // searchResult.each(function () {

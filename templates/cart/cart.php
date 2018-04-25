@@ -19,8 +19,8 @@ global $hb_settings;
                 <th class="hb_room_type"><?php _e( 'Cycle type', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_capacity" style="display: none;"><?php _e( 'Capacity', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_quantity"><?php _e( 'Quantity', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_check_in"><?php _e( 'From', 'wp-hotel-booking' ); ?></th>
-                <th class="hb_check_out"><?php _e( 'To', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_check_in"  style="display: none;"><?php// _e( 'From', 'wp-hotel-booking' ); ?></th>
+                <th class="hb_check_out"  style="display: none;"><?php// _e( 'To', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_night" style="display: none;"><?php _e( 'Night', 'wp-hotel-booking' ); ?></th>
                 <th class="hb_gross_total"><?php _e( 'Gross Total', 'wp-hotel-booking' ); ?></th>
                 </thead>
@@ -46,8 +46,8 @@ global $hb_settings;
                             <td class="hb_quantity">
                                 <p><?php echo esc_html( $num_of_rooms ); ?></p>
                             </td>
-                            <td class="hb_check_in"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_in_date' ) ) ) ?></td>
-                            <td class="hb_check_out"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_out_date' ) ) ) ?></td>
+                            <td class="hb_check_in"  style="display: none;"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_in_date' ) ) ) ?></td>
+                            <td class="hb_check_out"  style="display: none;"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_out_date' ) ) ) ?></td>
                             <td class="hb_night" style="display: none;"><?php echo hb_count_nights_two_dates( $room->get_data( 'check_out_date' ), $room->get_data( 'check_in_date' ) ) ?></td>
                             <td class="hb_gross_total">
 								<?php echo hb_format_price( $room->total ); ?>
@@ -60,7 +60,7 @@ global $hb_settings;
 
 				<?php do_action( 'hotel_booking_before_cart_total' ); ?>
 
-                <tr class="hb_sub_total">
+                <tr class="hb_sub_total" style="display: none;">
                     <td colspan="8"><?php _e( 'Sub Total', 'wp-hotel-booking' ); ?>
                         <span class="hb-align-right hb_sub_total_value">
                                 <?php echo hb_format_price( $cart->sub_total ); ?>
@@ -68,7 +68,7 @@ global $hb_settings;
                     </td>
                 </tr>
 				<?php if ( $tax = hb_get_tax_settings() ) : ?>
-                    <tr class="hb_advance_tax">
+                    <tr class="hb_advance_tax" style="display: none;">
                         <td colspan="8">
 							<?php _e( 'Tax', 'wp-hotel-booking' ); ?>
 							<?php if ( $tax < 0 ) { ?>
@@ -78,7 +78,7 @@ global $hb_settings;
                         </td>
                     </tr>
 				<?php endif; ?>
-                <tr class="hb_advance_grand_total">
+                <tr class="hb_advance_grand_total" style="display: none;">
                     <td colspan="8">
 						<?php _e( 'Grand Total', 'wp-hotel-booking' ); ?>
                         <span class="hb-align-right hb_grand_total_value"><?php echo hb_format_price( $cart->total ) ?></span>
@@ -86,7 +86,7 @@ global $hb_settings;
                 </tr>
 				<?php $advance_payment = ''; ?>
 				<?php if ( $advance_payment = $cart->advance_payment ) : ?>
-                    <tr class="hb_advance_payment">
+                    <tr class="hb_advance_payment" style="display: none;">
                         <td colspan="8">
 							<?php printf( __( 'Advance Payment (%s%% of Grand Total)', 'wp-hotel-booking' ), hb_get_advance_payment() ); ?>
                             <span class="hb-align-right hb_advance_payment_value"><?php echo hb_format_price( $advance_payment ); ?></span>

@@ -1160,10 +1160,12 @@ if ( ! function_exists( 'hb_format_price' ) ) {
 			}
 		}
 
-		$price_format = $before
-		                . number_format(
-			                $price, $price_number_of_decimal, $price_decimals_separator, $price_thousands_separator
-		                ) . $after;
+		$price_format = $before	. number_format($price) . $after;
+
+		// $price_format = $before
+		//                 . number_format(
+		// 	                $price, $price_number_of_decimal, $price_decimals_separator, $price_thousands_separator
+		//                 ) . $after;
 
 		return apply_filters( 'hb_price_format', $price_format, $price, $with_currency );
 	}

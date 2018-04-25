@@ -48,6 +48,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 </table>
 
 <?php if ( $booking->content ) : ?>
-    <h2><?php _e( 'Addition Information', 'wp-hotel-booking' ); ?></h2>
+    <h2><?php _e( 'Auroville Guest House Name. Please List Any Special Requests', 'wp-hotel-booking' ); ?></h2>
     <p><?php printf( '%s', $booking->content ) ?></p>
 <?php endif; ?>

@@ -15,7 +15,8 @@ $payment_gateways = hb_get_payment_gateways( array( 'enable' => true ) );
                 <li>
                     <label>
                         <input type="radio" name="hb-payment-method" value="<?php echo esc_attr( $gateway->slug ); ?>"<?php echo ( $i === 0 ) ? ' checked' : '' ?>/>
-						<?php echo esc_html( $gateway->title ); ?>
+						<?php //echo esc_html( $gateway->title ); ?>
+						<?php echo "Pay on Arrival" ?>
                     </label>
 					<?php if ( has_action( 'hb_payment_gateway_form_' . $gateway->slug ) ) { ?>
                         <div class="hb-payment-method-form <?php echo esc_attr( $gateway->slug ); ?>">
