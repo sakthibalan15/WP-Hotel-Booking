@@ -8,7 +8,7 @@ $cart = WP_Hotel_Booking::instance()->cart;
 global $hb_settings;
 
 ?>
-<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > Choose Bike(s) > <strong> Cart </strong> > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
+<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Bike(s)</a> > <strong> Cart </strong> > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
 <?php if ( WP_Hotel_Booking::instance()->cart->cart_items_count != 0 ) : ?>
     <div id="hotel-booking-cart">
 

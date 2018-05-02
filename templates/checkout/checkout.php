@@ -10,7 +10,7 @@ global $hb_settings;
 do_action( 'hotel_booking_before_checkout_form' );
 
 ?>
-		<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > Choose Bike(s) > <strong>Customer Details</strong></h3>
+		<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Bike(s)</a> > <strong>Customer Details</strong></h3>
     <div id="hotel-booking-payment">
 
         <form name="hb-payment-form" id="hb-payment-form" method="post" action="<?php echo isset( $search_page ) ? $search_page : ''; ?>">

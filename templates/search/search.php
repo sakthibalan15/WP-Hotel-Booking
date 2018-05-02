@@ -11,7 +11,7 @@ $max_child      = hb_get_request( 'max_child', 0 );
 $uniqid         = uniqid();
 
 ?>
-<h3 class="unlink"> <strong>Choose Dates</strong> > Choose Bike(s)</a>  > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
+<h3 class="unlink"> <strong>Choose Dates</strong> > <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Bike(s)</a>  > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
 <div id="hotel-booking-search-<?php echo uniqid(); ?>" class="hotel-booking-search">
 
 	<?php
