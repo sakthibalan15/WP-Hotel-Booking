@@ -202,10 +202,10 @@ class WPHB_Product_Room_Base extends WPHB_Product_Abstract {
 				$return = $this->get_total( $this->get_data( 'check_in_date' ), $this->get_data( 'check_out_date' ), $this->get_data( 'quantity' ), true );
 				break;
 			case 'amount_singular_exclude_tax':
-				$return = $this->get_total( $this->get_data( 'check_in_date' ), $this->get_data( 'check_out_date' ), 1, false );
+				$return = $this->get_total1( $this->get_data( 'check_in_date' ), $this->get_data( 'check_out_date' ), 1, false );
 				break;
 			case 'amount_singular_include_tax':
-				$return = $this->get_total( $this->get_data( 'check_in_date' ), $this->get_data( 'check_out_date' ), 1, true );
+				$return = $this->get_total1( $this->get_data( 'check_in_date' ), $this->get_data( 'check_out_date' ), 1, true );
 				break;
 			case 'amount_singular':
 				$return = $this->amount_singular();
@@ -412,6 +412,58 @@ class WPHB_Product_Room_Base extends WPHB_Product_Abstract {
 		return $total;
 	}
 
+	function get_total1( $from = null, $to = null, $num_of_rooms = 1, $including_tax = true ) {
+		$nights = 0;
+		$total  = 0;
+		if ( is_null( $from ) && is_null( $to ) ) {
+			$to_time   = (int) $this->check_out_date;
+			$from_time = (int) $this->check_in_date;
+		} else {
+			if ( ! is_numeric( $from ) ) {
+				$from_time = strtotime( $from );
+			} else {
+				$from_time = $from;
+			}
+			if ( ! is_numeric( $to ) ) {
+				$to_time = strtotime( $to );
+			} else {
+				if ( $to >= DAY_IN_SECONDS ) {
+					$to_time = $to;
+				} else {
+					$nights = $to;
+				}
+			}
+		}
+
+		if ( ! $num_of_rooms ) {
+			$num_of_rooms = intval( $this->get_data( 'quantity' ) );
+		}
+
+		if ( ! $nights ) {
+			$nights = hb_count_nights_two_dates( $to_time, $from_time );
+		}
+
+		$from = mktime( 0, 0, 0, date( 'm', $from_time ), date( 'd', $from_time ), date( 'Y', $from_time ) );
+		 // for ( $i = 0; $i < $nights; $i ++ ) {
+			$total_per_night = $this->get_price( $from + $i * DAY_IN_SECONDS, false );
+			$total           += $total_per_night * $num_of_rooms;
+		 // }
+
+
+		$total    = apply_filters( 'hotel_booking_room_total_price_excl_tax', $total, $this );
+		$settings = WPHB_Settings::instance();
+		// room price include tax
+		if ( $including_tax ) {
+			// $tax_enbale = apply_filters( 'hotel_booking_extra_tax_enable', hb_price_including_tax() );
+			// if ( $tax_enbale ) {
+			$tax_price = $total * hb_get_tax_settings();
+			$tax_price = apply_filters( 'hotel_booking_room_total_price_incl_tax', $tax_price, $this );
+			$total     = $total + $tax_price;
+			// }
+		}
+
+		return $total;
+	}
 	/**
 	 * Get list of pricing plan of this room type
 	 * @return null
