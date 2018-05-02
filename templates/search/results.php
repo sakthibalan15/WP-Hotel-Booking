@@ -9,7 +9,7 @@ do_action( 'hb_before_search_result' );
 <?php
 global $hb_search_rooms;
 ?>
-<h3> Choose Dates > <strong>Choose Bike(s)</strong> > Customer Details</h3>
+<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > <strong>Choose Bike(s)</strong> > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
 <div id="hotel-booking-results">
 	<?php if ( $results && !empty( $hb_search_rooms['data'] ) ): ?>
         <h3><?php _e( 'Search results', 'wp-hotel-booking' ); ?></h3>

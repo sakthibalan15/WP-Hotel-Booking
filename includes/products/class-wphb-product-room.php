@@ -391,10 +391,11 @@ class WPHB_Product_Room_Base extends WPHB_Product_Abstract {
 		}
 
 		$from = mktime( 0, 0, 0, date( 'm', $from_time ), date( 'd', $from_time ), date( 'Y', $from_time ) );
-		for ( $i = 0; $i < $nights; $i ++ ) {
+		 for ( $i = 0; $i < $nights; $i ++ ) {
 			$total_per_night = $this->get_price( $from + $i * DAY_IN_SECONDS, false );
 			$total           += $total_per_night * $num_of_rooms;
-		}
+		 }
+
 
 		$total    = apply_filters( 'hotel_booking_room_total_price_excl_tax', $total, $this );
 		$settings = WPHB_Settings::instance();

@@ -11,7 +11,7 @@ $max_child      = hb_get_request( 'max_child', 0 );
 $uniqid         = uniqid();
 
 ?>
-<h3> <strong>Choose Dates</strong> > Choose Bike(s) > Customer Details</h3>
+<h3 class="unlink"> <strong>Choose Dates</strong> > Choose Bike(s)</a>  > <a href="/checkout/" style="color: #0F74BD;">Customer Details</a></h3>
 <div id="hotel-booking-search-<?php echo uniqid(); ?>" class="hotel-booking-search">
 
 	<?php
@@ -83,4 +83,10 @@ $uniqid         = uniqid();
             <button type="submit"><?php _e( 'Check Availability', 'wp-hotel-booking' ); ?></button>
         </p>
     </form>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Hours: Mon-Sat 9am to 4:30pm (No Sunday Pick Up or Drop off)</h3>
+			</div>
+		</div>
 </div>

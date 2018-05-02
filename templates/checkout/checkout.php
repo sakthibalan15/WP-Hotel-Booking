@@ -10,7 +10,7 @@ global $hb_settings;
 do_action( 'hotel_booking_before_checkout_form' );
 
 ?>
-		<h3> Choose Dates > Choose Bike(s) > <strong>Customer Details</strong></h3>
+		<h3 class="unlink"> <a href="/e-cycle-search/" style="color: #0F74BD;">Choose Dates</a> > Choose Bike(s) > <strong>Customer Details</strong></h3>
     <div id="hotel-booking-payment">
 
         <form name="hb-payment-form" id="hb-payment-form" method="post" action="<?php echo isset( $search_page ) ? $search_page : ''; ?>">
@@ -40,7 +40,7 @@ do_action( 'hotel_booking_before_checkout_form' );
                                 <a href="<?php echo esc_url( get_permalink( $room->ID ) ); ?>"><?php echo esc_html( $room->name ); ?><?php printf( '%s', $room->capacity_title ? ' (' . $room->capacity_title . ')' : '' ); ?></a>
                             </td>
                             <td class="hb_capacity" style="display: none;"><?php echo sprintf( _n( '%d adult', '%d adults', $room->capacity, 'wp-hotel-booking' ), $room->capacity ); ?> </td>
-                            <td class="hb_quantity"><?php printf( '%s', $num_of_rooms ); ?></td>
+                            <td class="hb_quantity"><?php printf( '%s', $num_of_rooms ); ?><?php echo " cycles " . hb_format_price( $room->amount_singular ) . "/Day"; ?></td>
                             <td class="hb_check_in" style="display: none;"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_in_date' ) ) ) ?></td>
                             <td class="hb_check_out" style="display: none;"><?php echo date_i18n( hb_get_date_format(), strtotime( $room->get_data( 'check_out_date' ) ) ) ?></td>
                             <td class="hb_night" style="display: none;"><?php echo hb_count_nights_two_dates( $room->get_data( 'check_out_date' ), $room->get_data( 'check_in_date' ) ) ?></td>
@@ -101,6 +101,13 @@ do_action( 'hotel_booking_before_checkout_form' );
 				<?php } ?>
 
             </table>
+
+						<div class="row">
+							<div class="col-md-12">
+								<h5>Special discounts, use these coupons: 15+days, 30+days, 45+days, aurovillian, volunteer, volunteer90+day</h5>
+							</div>
+
+						</div>
 
 			<?php if ( !is_user_logged_in() && !hb_settings()->get( 'guest_checkout' ) && get_option( 'users_can_register' ) ) : ?>
 
