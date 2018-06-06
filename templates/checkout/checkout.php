@@ -54,7 +54,7 @@ do_action( 'hotel_booking_before_checkout_form' );
 
 				<?php do_action( 'hotel_booking_before_cart_total' ); ?>
 
-                <tr class="hb_sub_total" style="display: none;">
+                <tr class="hb_sub_total">
                     <td colspan="7"><?php _e( 'Sub Total', 'wp-hotel-booking' ); ?>
                         <span class="hb-align-right hb_sub_total_value">
                         <?php echo hb_format_price( $cart->sub_total ); ?>
