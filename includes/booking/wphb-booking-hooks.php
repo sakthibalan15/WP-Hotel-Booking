@@ -110,9 +110,9 @@ if ( ! function_exists( 'hb_customer_place_order_email' ) ) {
 
 
 		// customer place order email
-		$customer_email_subject      = __( 'Booking pending', 'wp-hotel-booking' );
-		$customer_email_heading      = __( 'Your booking is pending', 'wp-hotel-booking' );
-		$customer_email_heading_desc = __( 'Your booking is pending until the payment is completed', 'wp-hotel-booking' );
+		$customer_email_subject      = __( 'Booking confirmed', 'wp-hotel-booking' );
+		$customer_email_heading      = __( 'Your booking is confirmed', 'wp-hotel-booking' );
+		$customer_email_heading_desc = __( '', 'wp-hotel-booking' );
 
 
 		$customer_body = hb_get_template_content( 'emails/booking-accepted.php', array(
@@ -132,7 +132,7 @@ if ( ! function_exists( 'hb_customer_place_order_email' ) ) {
 		$admin_email              = $settings->get( 'email_new_booking_recipients', get_option( 'admin_email' ) );
 		$admin_subject            = '[{site_title}] New customer booking ({booking_number}) - {booking_date}';
 		$admin_email_heading      = __( 'New customer booking', 'wp-hotel-booking' );
-		$admin_email_heading_desc = __( 'You have a new booking room', 'wp-hotel-booking' );
+		$admin_email_heading_desc = __( 'You have a new booking eCyle', 'wp-hotel-booking' );
 
 		$find = array(
 			'booking-date'   => '{booking_date}',

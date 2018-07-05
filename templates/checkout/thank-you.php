@@ -179,15 +179,15 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
                     </li>
 
                     <li>
-                        <label for="_hb_customer_fax"><?php echo __( 'Fax:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_tax ); ?>
+                        <label for="_hb_customer_fax"><?php echo __( 'Local Indian Mobile:', 'wp-hotel-booking' ); ?></label>
+		                <?php echo esc_html( $booking->customer_fax ); ?>
                     </li>
 
                 </ul>
             </div>
 
             <div class="booking-notes">
-                <label for="_hb_customer_notes"><?php echo __( 'Booking Notes:', 'wp-hotel-booking' ); ?></label>
+                <label for="_hb_customer_notes"><?php echo __( 'Auroville Guest House/Notes:', 'wp-hotel-booking' ); ?></label>
 				<?php echo esc_html( $booking->post->post_content ); ?>
             </div>
 

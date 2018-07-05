@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <h2 class="section-title"><?php echo __( 'Booking ', 'wp-hotel-booking' ) . $booking->get_booking_number(); ?></h2>
 <table class="width-100 booking_details" cellspacing="0" cellpadding="0">
     <tr>
-        <th><?php _e( 'Room', 'wp-hotel-booking' ) ?></th>
+        <th><?php _e( 'eCyle', 'wp-hotel-booking' ) ?></th>
         <th><?php _e( 'Check in', 'wp-hotel-booking' ) ?></th>
         <th><?php _e( 'Check out', 'wp-hotel-booking' ) ?></th>
         <th><?php _e( '#', 'wp-hotel-booking' ) ?></th>
