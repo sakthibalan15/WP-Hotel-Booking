@@ -37,6 +37,12 @@ if ( ! defined( 'ABSPATH' ) ) {
         <td colspan="4"><b><?php _e( 'Subtotal', 'wp-hotel-booking' ) ?></b></td>
         <td><?php printf( '%s', hb_format_price( $booking->sub_total(), hb_get_currency_symbol( $booking->currency ) ) ) ?></td>
     </tr>
+		<tr>
+				<td colspan="4"><b><?php _e( 'Tax', 'wp-hotel-booking' ) ?></b></td>
+				<td>
+	<?php printf( '%s', apply_filters( 'hotel_booking_admin_booking_details', hb_format_price( hb_booking_tax_total( $booking->id ), hb_get_currency_symbol( $booking->currency ) ), $booking ) ); ?>
+				</td>
+		</tr>
     <tr>
         <td colspan="4"><b><?php _e( 'Payment method', 'wp-hotel-booking' ) ?></b></td>
         <td><?php echo esc_html( $booking->method_title ) ?></td>
