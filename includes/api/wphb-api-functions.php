@@ -35,11 +35,23 @@ if ( !function_exists( 'v1_booking_items' ) ) {
                 $current_booking_item =  (array) $row;
                 continue;
             }
-            $valid_fields = array('qty', 'total');
+            $valid_fields = array('qty', 'total', 'check_in_date', 'check_out_date');
+
             if(in_array($row->meta_key, $valid_fields)) {
+              if($row->meta_key == "check_in_date") {
+                 $datetime = new DateTime("@$row->meta_value");
+                 $check_in_date = $datetime->format('d-m-Y');
+                 $row->meta_value = $check_in_date;
+              }
+              if($row->meta_key == "check_out_date") {
+                 $datetime = new DateTime("@$row->meta_value");
+                 $check_out_date = $datetime->format('d-m-Y');
+                 $row->meta_value = $check_out_date;
+              }
               $current_booking_item = array_merge($current_booking_item, array($row->meta_key => $row->meta_value));
             }
         }
+
         array_push($result, $current_booking_item);
 
         header('Cache-control: private');

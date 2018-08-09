@@ -14,6 +14,11 @@ global $hb_search_rooms;
 	<?php if ( $results && !empty( $hb_search_rooms['data'] ) ): ?>
         <h3><?php _e( 'Search results', 'wp-hotel-booking' ); ?></h3>
 		<?php hb_get_template( 'search/list.php', array( 'results' => $hb_search_rooms['data'], 'atts' => $atts ) ); ?>
+		
+			<div class="checkout_button">
+				<a href="http://kinsy.com/checkout/" class="hb_button hb_view_cart">Checkout</a>
+			</div>
+
         <nav class="rooms-pagination">
 			<?php
 			echo paginate_links( apply_filters( 'hb_pagination_args', array(
