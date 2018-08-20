@@ -104,7 +104,7 @@ do_action( 'hotel_booking_before_checkout_form' );
 
 						<div class="row">
 							<div class="col-md-12">
-								<h5>Special discounts, use these coupons: 15+days, 30+days, 45+days, Volunteer contact for special price.</h5>
+								<h5>Special discounts, use these coupons: 15+days, 30+days, 45+days <br/> Volunteer contact for special price.</h5>
 							</div>
 
 						</div>

@@ -542,7 +542,7 @@ if ( ! function_exists( 'hb_count_nights_two_dates' ) ) {
 		}
 		$datediff = $end - $start;
 
-		return floor( $datediff / ( 60 * 60 * 24 ) );
+		return floor( -1 + $datediff / ( 60 * 60 * 24 ) );
 	}
 }
 
